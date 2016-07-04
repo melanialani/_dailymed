@@ -30,8 +30,8 @@ Example of XML Request
 Example of JSON Request
 *********
 
--  `http://localhost/_dailymed/index.php/api/drug/ndc?code=59535-3001 <http://localhost/_dailymed/index.php/api/drug/ndc?code=59535-3001>`_
--  `http://localhost/_dailymed/index.php/api/drug/diagnosis?code=20035 <http://localhost/_dailymed/index.php/api/drug/diagnosis?code=20035>`_
--  `http://localhost/_dailymed/index.php/api/drug/procedure?code=8093 <http://localhost/_dailymed/index.php/api/drug/procedure?code=8093>`_
--  `http://localhost/_dailymed/index.php/api/drug/brand?name=lam <http://localhost/_dailymed/index.php/api/drug/brand?name=lam>`_
--  `http://localhost/_dailymed/index.php/api/drug/generic?name=Midazolam <http://localhost/_dailymed/index.php/api/drug/generic?name=Midazolam>`_
+-  `http://localhost/_dailymed/index.php/api/drug/ndc/code/59535-3001/format/json <http://localhost/_dailymed/index.php/api/drug/ndc/code/59535-3001/format/json>`_
+-  `http://localhost/_dailymed/index.php/api/drug/diagnosis/code/20035/format/json <http://localhost/_dailymed/index.php/api/drug/diagnosis/code/20035/format/json>`_
+-  `http://localhost/_dailymed/index.php/api/drug/procedure/code/8093/format/json <http://localhost/_dailymed/index.php/api/drug/procedure/code/8093/format/json>`_
+-  `http://localhost/_dailymed/index.php/api/drug/brand/name/lam/format/json <http://localhost/_dailymed/index.php/api/drug/brand/name/lam/format/json>`_
+-  `http://localhost/_dailymed/index.php/api/drug/generic/name/Midazolam/format/json <http://localhost/_dailymed/index.php/api/drug/generic/name/Midazolam/format/json>`_
