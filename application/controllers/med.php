@@ -10,30 +10,46 @@ class Med extends CI_Controller {
 	}
 	
 	public function index(){
-		if ($this->input->cookie('_dailymed')) $data['email'] = $this->input->cookie('_dailymed');
-		else $data['email'] = ""; 
+		if ($this->input->cookie('_dailymed') != NULL || $this->input->cookie('_dailymed') != "") {
+			$data['email'] = $this->input->cookie('_dailymed');
+			
+			// get user's status
+			$result = $this->User_model->getUser($data['email']);
+			$data['key'] = $result[0]['user_key'];
+			$data['req'] = $result[0]['request'];
+		} else {
+			$data['email'] = ""; 
+			$data['key'] = ""; 
+			$data['req'] = "";
+		}
 		
-		$data['key'] = ""; 
-		$data['req'] = "";
 		$data['message'] = "";
 		
 		$this->load->view('index', $data);
 	}
 	
 	public function register(){
-		if ($this->input->cookie('_dailymed')) $data['email'] = $this->input->cookie('_dailymed');
-		else $data['email'] = ""; 
+		if ($this->input->cookie('_dailymed') != NULL || $this->input->cookie('_dailymed') != "") {
+			$data['email'] = $this->input->cookie('_dailymed');
+			
+			// get user's status
+			$result = $this->User_model->getUser($data['email']);
+			$data['key'] = $result[0]['user_key'];
+			$data['req'] = $result[0]['request'];
+		} else {
+			$data['email'] = ""; 
+			$data['key'] = ""; 
+			$data['req'] = "";
+		}
 		
-		$data['key'] = ""; 
-		$data['req'] = "";
 		$data['message'] = "";
-		
-		// get information from form view
-		$data['new_email'] = $this->input->post('new_email');
-		$data['new_password'] = $this->input->post('new_password');
 		
 		// register button on click
 		if ($this->input->post('register')){
+			// get information from form view
+			$data['new_email'] = $this->input->post('new_email');
+			$data['new_password'] = $this->input->post('new_password');
+		
 			if ($this->User_model->isEmailExist($this->input->post('new_email'))){
 				// email exist already, please enter different email
 				
@@ -63,29 +79,36 @@ class Med extends CI_Controller {
 					$data['email'] = "";
 					$data['message'] = "<script>alert('Register failed');</script>";
 				}	
-				
-				$this->load->view('index', $data);
 			}
 		}
+		
+		$this->load->view('index', $data);
 	}
 	
 	public function login(){
-		if ($this->input->cookie('_dailymed')) $data['email'] = $this->input->cookie('_dailymed');
-		else $data['email'] = ""; 
+		if ($this->input->cookie('_dailymed') != NULL || $this->input->cookie('_dailymed') != "") {
+			$data['email'] = $this->input->cookie('_dailymed');
+			
+			// get user's status
+			$result = $this->User_model->getUser($data['email']);
+			$data['key'] = $result[0]['user_key'];
+			$data['req'] = $result[0]['request'];
+		} else {
+			$data['email'] = ""; 
+			$data['key'] = ""; 
+			$data['req'] = "";
+		}
 		
-		$data['key'] = ""; 
-		$data['req'] = "";
 		$data['message'] = "";
-		
-		// clear cookies automatically if you clicks login button
-		delete_cookie('_dailymed'); 
-		
-		// take user's input from form
-		$data['email'] = $this->input->post('email', TRUE);
-		$data['password'] = $this->input->post('password', TRUE);
 		
 		// if button LOGIN is pressed
 		if ($this->input->post('login', TRUE)) {
+			// clear cookies automatically if you clicks login button
+			delete_cookie('_dailymed'); 
+			
+			// take user's input from form
+			$data['email'] = $this->input->post('email', TRUE);
+			$data['password'] = $this->input->post('password', TRUE);
 			
 			// cek kesesuaian email dan password
 			
@@ -130,8 +153,8 @@ class Med extends CI_Controller {
 			} else {
 				$data['email'] = "";
 			}
-			
-			$this->load->view('index', $data);
 		}
+		
+		$this->load->view('index', $data);
 	}
 }
