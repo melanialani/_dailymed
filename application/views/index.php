@@ -100,26 +100,49 @@
                         data as XML or JSON based on user specificaiton.</h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted">Graphic Design</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted">Graphic Design</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted">Graphic Design</p>
-                    </div>
-                </div>
-            </div>
+            
+            <table class="table table-striped">
+            	<tr>
+            		<td><b>/drug/ndc?code={SETCODE}</b></td>
+            		<td>Returns drug information with NDC code = SETCODE in XML format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/diagnosis?code={SETCODE}</b></td>
+            		<td>Returns drug information with diagnosis code = SETCODE in XML format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/procedure?code={SETCODE}</b></td>
+            		<td>Returns drug information with procedure code = SETCODE in XML format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/brand?name={SETNAME}</b></td>
+            		<td>Returns drug information with brand name contains SETNAME in XML format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/generic?name={SETNAME}</b></td>
+            		<td>Returns drug information with generic name contains SETNAME in XML format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/ndc/code/{SETCODE}/format/json</b></td>
+            		<td>Returns drug information with NDC code = SETCODE in JSON format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/diagnosis/code/{SETCODE}/format/json</b></td>
+            		<td>Returns drug information with diagnosis code = SETCODE in JSON format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/procedure/code/{SETCODE}/format/json</b></td>
+            		<td>Returns drug information with procedure code = SETCODE in JSON format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/brand/name/{SETNAME}/format/json</b></td>
+            		<td>Returns drug information with brand name contains SETNAME in JSON format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/generic/name/{SETNAME}/format/json</b></td>
+            		<td>Returns drug information with generic name contains SETNAME in JSON format</td>
+            	</tr>
+            </table>
         </div>
     </section>
     
