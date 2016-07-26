@@ -25,6 +25,9 @@ Example of XML Request
 -  `http://localhost/_dailymed/index.php/api/drug/procedure?code=8093&key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/procedure?code=8093&key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
 -  `http://localhost/_dailymed/index.php/api/drug/brand?name=lam&key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/brand?name=lam&key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
 -  `http://localhost/_dailymed/index.php/api/drug/generic?name=Midazolam&key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/generic?name=Midazolam&key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
+-  `http://localhost/_dailymed/index.php/api/drug/price?more_than=73&lower_than=75&key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/price?more_than=73&lower_than=75&key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
+-  `http://localhost/_dailymed/index.php/api/drug/brandfor?brand=ida&for=kids&key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/brandfor?brand=ida&for=kids&key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
+-  `http://localhost/_dailymed/index.php/api/drug/drugsForWithPrice?more_than=73&lower_than=75&for=animals&key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/drugsForWithPrice?more_than=73&lower_than=75&for=animals&key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
 
 *********
 Example of JSON Request
@@ -35,3 +38,6 @@ Example of JSON Request
 -  `http://localhost/_dailymed/index.php/api/drug/procedure/code/8093/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/procedure/code/8093/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
 -  `http://localhost/_dailymed/index.php/api/drug/brand/name/lam/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/brand/name/lam/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
 -  `http://localhost/_dailymed/index.php/api/drug/generic/name/Midazolam/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/generic/name/Midazolam/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
+-  `http://localhost/_dailymed/index.php/api/drug/price/more_than/73/lower_than/75/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/price/more_than/73/lower_than/75/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
+-  `http://localhost/_dailymed/index.php/api/drug/brandfor/brand/ida/for/kids/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/brandfor/brand/ida/for/kids/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_
+-  `http://localhost/_dailymed/index.php/api/drug/drugsForWithPrice/more_than/73/lower_than/75/for/animals/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5 <http://localhost/_dailymed/index.php/api/drug/drugsForWithPrice/more_than/73/lower_than/75/for/animals/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5>`_

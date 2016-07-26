@@ -103,44 +103,68 @@
             
             <table class="table table-striped">
             	<tr>
-            		<td><b>/drug/ndc?code={SETCODE}</b></td>
+            		<td><b>/drug/ndc?code={SETCODE}&key={USERKEY}</b></td>
             		<td>Returns drug information with NDC code = SETCODE in XML format</td>
             	</tr>
             	<tr>
-            		<td><b>/drug/diagnosis?code={SETCODE}</b></td>
+            		<td><b>/drug/diagnosis?code={SETCODE}&key={USERKEY}</b></td>
             		<td>Returns drug information with diagnosis code = SETCODE in XML format</td>
             	</tr>
             	<tr>
-            		<td><b>/drug/procedure?code={SETCODE}</b></td>
+            		<td><b>/drug/procedure?code={SETCODE}&key={USERKEY}</b></td>
             		<td>Returns drug information with procedure code = SETCODE in XML format</td>
             	</tr>
             	<tr>
-            		<td><b>/drug/brand?name={SETNAME}</b></td>
+            		<td><b>/drug/brand?name={SETNAME}&key={USERKEY}</b></td>
             		<td>Returns drug information with brand name contains SETNAME in XML format</td>
             	</tr>
             	<tr>
-            		<td><b>/drug/generic?name={SETNAME}</b></td>
+            		<td><b>/drug/generic?name={SETNAME}&key={USERKEY}</b></td>
             		<td>Returns drug information with generic name contains SETNAME in XML format</td>
             	</tr>
             	<tr>
-            		<td><b>/drug/ndc/code/{SETCODE}/format/json</b></td>
+            		<td><b>/drug/price?more_than={SETPRICE}&lower_than={SETPRICE}&key={USERKEY}</b></td>
+            		<td>Returns drug information with price in between in XML format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/brandfor?brand={SETBRAND}&for={SETAGECIRCLE}&key={USERKEY}</b></td>
+            		<td>Returns drug information with a certain brand within certain age circle in XML format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/drugsForWithPrice?more_than={SETPRICE}&lower_than={SETPRICE}&for={SETAGECIRCLE}&key={USERKEY}</b></td>
+            		<td>Returns drug information with price in between and within a certain age circle XML format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/ndc/code/{SETCODE}/format/json?key={USERKEY}</b></td>
             		<td>Returns drug information with NDC code = SETCODE in JSON format</td>
             	</tr>
             	<tr>
-            		<td><b>/drug/diagnosis/code/{SETCODE}/format/json</b></td>
+            		<td><b>/drug/diagnosis/code/{SETCODE}/format/json?key={USERKEY}</b></td>
             		<td>Returns drug information with diagnosis code = SETCODE in JSON format</td>
             	</tr>
             	<tr>
-            		<td><b>/drug/procedure/code/{SETCODE}/format/json</b></td>
+            		<td><b>/drug/procedure/code/{SETCODE}/format/json?key={USERKEY}</b></td>
             		<td>Returns drug information with procedure code = SETCODE in JSON format</td>
             	</tr>
             	<tr>
-            		<td><b>/drug/brand/name/{SETNAME}/format/json</b></td>
+            		<td><b>/drug/brand/name/{SETNAME}/format/json?key={USERKEY}</b></td>
             		<td>Returns drug information with brand name contains SETNAME in JSON format</td>
             	</tr>
             	<tr>
-            		<td><b>/drug/generic/name/{SETNAME}/format/json</b></td>
+            		<td><b>/drug/generic/name/{SETNAME}/format/json?key={USERKEY}</b></td>
             		<td>Returns drug information with generic name contains SETNAME in JSON format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/price/more_than/{SETPRICE}/lower_than/{SETPRICE}/format/json?key={USERKEY}</b></td>
+            		<td>Returns drug information with price in between in JSON format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/brandfor/brand/{SETBRAND}/for/{SETAGECIRCLE}/format/json?key={USERKEY}</b></td>
+            		<td>Returns drug information with a certain brand within certain age circle in JSON format</td>
+            	</tr>
+            	<tr>
+            		<td><b>/drug/drugsForWithPrice/more_than/{SETPRICE}/lower_than/{SETPRICE}/for/{SETAGECIRCLE}/format/json?key={USERKEY}</b></td>
+            		<td>Returns drug information with price in between and within a certain age circle in JSON format</td>
             	</tr>
             </table>
         </div>

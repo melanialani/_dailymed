@@ -127,9 +127,81 @@ Class Drugs_Model extends CI_Model {
 
         return $this->db->get()->result_array();
     }
+    
+    /**
+	* Get drugs with price within range
+	* 
+	* @param int $more_than
+	* @param int $lower_than
+	* 
+	* @return
+	*/
+	public function getDrugsWithPriceBetween($more_than, $lower_than){
+		// what fields to get
+		$this->db->select('code_fda_ndc as FDA NDC Code, name_brand as Brand, name_generic as Generic Name, company as Drug Company,
+		code_diagnosis as ICD9 Diagnosis Code, desc_dx as Diagnosis Form, code_proc as Procedure Code, desc_proc as Procedure Form,
+		price as Price, age as Age Circle');
+
+		// additional conditions
+		$this->db->where("price >= $more_than AND price <= $lower_than");
+
+		// the tables and their nickname
+		$this->db->from('new_drugs');
+
+        return $this->db->get()->result_array();
+    }
+    
+    /**
+	* Get drugs with brand x for circle age y
+	* Value of y must be either kids, adult, animals, elderly, or baby
+	* 
+	* @param string $brand
+	* @param string $for
+	* 
+	* @return
+	*/
+    public function getDrugsWithBrandFor($brand, $for){
+		// what fields to get
+		$this->db->select('code_fda_ndc as FDA NDC Code, name_brand as Brand, name_generic as Generic Name, company as Drug Company,
+		code_diagnosis as ICD9 Diagnosis Code, desc_dx as Diagnosis Form, code_proc as Procedure Code, desc_proc as Procedure Form,
+		price as Price, age as Age Circle');
+
+		// additional conditions
+		$this->db->where("name_brand LIKE '%$brand%' AND age LIKE '$for'");
+
+		// the tables and their nickname
+		$this->db->from('new_drugs');
+
+        return $this->db->get()->result_array();
+    }
+    
+    /**
+	* Get drugs with price within range and within certain age circle
+	* Age circle must be either kids, adult, animals, elderly, or baby
+	* 
+	* @param int $more_than
+	* @param int $lower_than
+	* @param string $for
+	* 
+	* @return
+	*/
+    public function getDrugsWithinPriceFor($more_than, $lower_than, $for){
+		// what fields to get
+		$this->db->select('code_fda_ndc as FDA NDC Code, name_brand as Brand, name_generic as Generic Name, company as Drug Company,
+		code_diagnosis as ICD9 Diagnosis Code, desc_dx as Diagnosis Form, code_proc as Procedure Code, desc_proc as Procedure Form,
+		price as Price, age as Age Circle');
+
+		// additional conditions
+		$this->db->where("price >= $more_than AND price <= $lower_than AND age LIKE '$for'");
+
+		// the tables and their nickname
+		$this->db->from('new_drugs');
+
+        return $this->db->get()->result_array();
+    }
 
 
-//	MICHAEL
+	//	MICHAEL
 
 	public function updateUserRequest($key, $data){
 		$this->db->where('user_key', $key);
