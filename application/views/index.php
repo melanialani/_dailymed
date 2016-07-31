@@ -68,6 +68,9 @@
                     <li>
                         <a class="page-scroll" href="#payment">Payment</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" href="<?php echo base_url('index.php/med/example'); ?>">Example</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

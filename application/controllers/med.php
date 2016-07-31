@@ -157,4 +157,23 @@ class Med extends CI_Controller {
 		
 		$this->load->view('index', $data);
 	}
+	
+	public function example(){
+		// set the url we want to fetch
+		$url = base_url('index.php/api/drug/generic/name/Midazolam/format/json?key=72ee9a770f2ff9747dc3b8de9a73e9a5');
+
+		// fetch the data through webserver
+		$data = json_decode(file_get_contents($url, FALSE), TRUE);
+
+		// verify we have the data
+		//var_dump($data); 
+		
+		// print the data
+		//header('content-type:application/json');
+		//print_r($data);
+		
+		$data['data'] = $data;
+		$data['url'] = $url;
+		$this->load->view('example', $data);
+	}
 }
