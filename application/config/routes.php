@@ -52,3 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'med';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['payment_limit'] = 'med/payment_limit';
+$route['home'] = 'med/home';

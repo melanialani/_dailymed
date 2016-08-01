@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="C:\xampp\htdocs\_dailymed\_dailymed.clpprj">
 	<settings><PM_URL><![CDATA[http://localhost/_dailymed/]]></PM_URL><PM_HOME_URL><![CDATA[http://localhost/_dailymed/]]></PM_HOME_URL><PM_LIBS><![CDATA[]]></PM_LIBS><PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION><PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR><PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE></settings><removed value=";"/><added value=""/><lastopfiles>
+		<file name="C:\xampp\htdocs\_dailymed\application\controllers\med.php"/>
+		<file name="C:\xampp\htdocs\_dailymed\application\controllers\api\drug.php"/>
+		<file name="C:\xampp\htdocs\_dailymed\application\models\drugs_model.php"/>
+		<file name="C:\xampp\htdocs\_dailymed\application\models\user_model.php"/>
+		<file name="C:\xampp\htdocs\_dailymed\application\views\example.php"/>
+		<file name="C:\xampp\htdocs\_dailymed\application\views\index.php"/>
 	</lastopfiles>
 	<errors version="5.3">
 		<errfile name="C:\xampp\htdocs\_dailymed\application\views\index.php">
-			<error val="91;286;110;286;2002;1;"/>
-			<error val="77;286;91;286;2002;1;"/>
-			<error val="88;328;107;328;2002;1;"/>
-			<error val="74;328;88;328;2002;1;"/>
+			<error val="91;302;110;302;2002;1;"/>
+			<error val="77;302;91;302;2002;1;"/>
+			<error val="88;344;107;344;2002;1;"/>
+			<error val="74;344;88;344;2002;1;"/>
+			<error val="100;269;111;269;2002;1;"/>
 		</errfile>
 	</errors>
 	<codestructure version="5.0">
@@ -9020,20 +9027,28 @@
 				<treenode node="_from_type;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\libraries\Format.php;f11;15;22;15;;;;vpos;;v;;r;;d-1,-1;;b2,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="Med;PHP:Class Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f0;2;1;178;;;;vpos;;vCI_Controller;;c;;r;;d32,2;;b0,0;;m">
+			<treenode node="Med;PHP:Class Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f0;2;1;210;;;;vpos;;vCI_Controller;;c;;r;;d32,2;;b0,0;;m">
 				<treenode node="__construct;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;4;2;9;;;;vpos;;v;;r;;d30,4;;b1,0;;m">
 					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;7;7;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="example;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;160;2;177;;;;vpos;;v;;r;;d26,160;;b1,0;;m">
-					<treenode node="data;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;165;7;165;;;;vposmixed;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="example;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;181;2;198;;;;vpos;;v;;r;;d26,181;;b1,0;;m">
+					<treenode node="data;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;186;7;186;;;;vposmixed;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;176;7;176;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;197;7;197;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="url;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;162;6;162;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="url;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;183;6;183;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="index;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;11;2;28;;;;vpos;;v;;r;;d24,11;;b1,0;;m">
+				<treenode node="home;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;31;2;49;;;;vpos;;v;;r;;d23,31;;b1,0;;m">
+					<treenode node="data;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;33;8;33;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="result;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;36;10;36;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f6;32;11;32;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="index;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;11;2;29;;;;vpos;;v;;r;;d24,11;;b1,0;;m">
 					<treenode node="data;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;13;8;13;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="result;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;16;10;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -9041,28 +9056,42 @@
 					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f6;12;11;12;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="login;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;87;2;158;;;;vpos;;v;;r;;d24,87;;b1,0;;m">
-					<treenode node="adaDiDatabase;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;116;17;116;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="login;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;108;2;179;;;;vpos;;v;;r;;d24,108;;b1,0;;m">
+					<treenode node="adaDiDatabase;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;137;17;137;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="cookie;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f4;142;11;142;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="cookie;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f4;163;11;163;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="data;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;89;8;89;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="data;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;110;8;110;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="i;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;118;10;118;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="i;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;139;10;139;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="result;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;92;10;92;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="result;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;113;10;113;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f6;88;11;88;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f6;109;11;109;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="register;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;30;2;85;;;;vpos;;v;;r;;d27,30;;b1,0;;m">
-					<treenode node="cookie;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f5;67;12;67;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="payment_limit;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;200;2;208;;;;vpos;;v;;r;;d32,200;;b1,0;;m">
+					<treenode node="cek_limit;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;203;12;203;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="data;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;32;8;32;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="data;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;205;7;205;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="result;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;35;10;35;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="key;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;201;6;201;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f6;31;11;31;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="limit_new;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;204;12;204;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="limit_now;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f2;202;12;202;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f9;201;14;201;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="register;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f8;51;2;106;;;;vpos;;v;;r;;d27,51;;b1,0;;m">
+					<treenode node="cookie;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f5;88;12;88;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="data;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;53;8;53;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="result;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f3;56;10;56;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\controllers\med.php;f6;52;11;52;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 			</treenode>
@@ -9266,7 +9295,7 @@
 				<treenode node="rest_format;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\libraries\REST_Controller.php;f14;24;26;24;;;;vposstring;;v;;r;;d-1,-1;;b2,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="User_Model;PHP:Class Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f0;2;1;75;;;;vpos;;vCI_Model;;c;;r;;d34,2;;b0,0;;m">
+			<treenode node="User_Model;PHP:Class Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f0;2;1;92;;;;vpos;;vCI_Model;;c;;r;;d34,2;;b0,0;;m">
 				<treenode node="__construct;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;4;5;7;;;;vpos;;v;;r;;d30,4;;b1,0;;m">
 					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;6;13;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -9275,34 +9304,48 @@
 					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f15;15;20;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="getUser;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;18;2;29;;;;vpos;;v;;r;;d32,18;;b1,0;;memail;;p">
-					<treenode node="email;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f25;18;31;18;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="getUser;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;35;2;46;;;;vpos;;v;;r;;d32,35;;b1,0;;memail;;p">
+					<treenode node="email;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f25;35;31;35;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f2;20;7;20;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="insertUser;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;62;2;74;;;;vpos;;v;;r&#xA;Description&#xA;     Insert User&#xA;&#xA;Parameters:&#xA;    string $email&#xA;    string $password;;d46,62;;b1,0;;mstring $email;;pstring $password;;p">
-					<treenode node="email;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f28;62;34;62;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="key;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f2;63;6;63;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="myArr;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;65;14;65;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="password;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f36;62;45;62;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;71;13;71;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f2;37;7;37;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="isEmailExist;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;38;2;52;;;;vpos;;v;;r&#xA;Description&#xA;     Is email exist already&#xA;&#xA;Parameters:&#xA;    string $email;;d37,38;;b1,0;;mstring $email;;p">
-					<treenode node="allUser;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f2;42;10;42;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="getUserLimit;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;18;2;28;;;;vpos;;v;;r;;d35,18;;b1,0;;mkey;;p">
+					<treenode node="key;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f30;18;34;18;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="email;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f30;38;36;38;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f2;19;7;19;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="i;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f7;44;9;44;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="insertUser;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;79;2;91;;;;vpos;;v;;r&#xA;Description&#xA;     Insert User&#xA;&#xA;Parameters:&#xA;    string $email&#xA;    string $password;;d46,79;;b1,0;;mstring $email;;pstring $password;;p">
+					<treenode node="email;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f28;79;34;79;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="isExist;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f2;40;10;40;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="key;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f2;80;6;80;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f13;42;18;42;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="myArr;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;82;14;82;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="password;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f36;79;45;79;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;88;13;88;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="isEmailExist;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;55;2;69;;;;vpos;;v;;r&#xA;Description&#xA;     Is email exist already&#xA;&#xA;Parameters:&#xA;    string $email;;d37,55;;b1,0;;mstring $email;;p">
+					<treenode node="allUser;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f2;59;10;59;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="email;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f30;55;36;55;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="i;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f7;61;9;61;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="isExist;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f2;57;10;57;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f13;59;18;59;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="updateUserRequestLimit;PHP:Function Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f8;30;2;33;;;;vpos;;v;;r;;d52,30;;b1,0;;mkey;;pdata;;p">
+					<treenode node="data;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f46;30;51;30;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="key;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f40;30;44;30;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\models\user_model.php;f2;31;7;31;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 			</treenode>
@@ -10618,9 +10661,11 @@
 			</treenode>
 			<treenode node="LANG;PHP:Var Name;C:\xampp\htdocs\_dailymed\system\core\CodeIgniter.php;f1;345;6;345;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
+			<treenode node="lim;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\views\index.php;f79;224;83;224;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
 			<treenode node="line;PHP:Var Name;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_php.php;f27;11;32;11;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_php.php;f24;7;29;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="message;PHP:Var Name;C:\xampp\htdocs\_dailymed\assets\mail\contact_me.php;f0;15;8;15;;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_php.php;f24;9;32;9;;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_general.php;f13;60;21;60;;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_exception.php;f23;9;31;9;;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_db.php;f13;60;21;60;;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_404.php;f13;60;21;60;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_php.php;f24;5;32;5;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_general.php;f1;6;9;6;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_exception.php;f24;5;32;5;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_db.php;f1;6;9;6;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_404.php;f1;6;9;6;;C:\xampp\htdocs\_dailymed\application\views\index.php;f15;365;23;365;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="message;PHP:Var Name;C:\xampp\htdocs\_dailymed\assets\mail\contact_me.php;f0;15;8;15;;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_php.php;f24;9;32;9;;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_general.php;f13;60;21;60;;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_exception.php;f23;9;31;9;;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_db.php;f13;60;21;60;;C:\xampp\htdocs\_dailymed\application\views\errors\html\error_404.php;f13;60;21;60;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_php.php;f24;5;32;5;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_general.php;f1;6;9;6;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_exception.php;f24;5;32;5;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_db.php;f1;6;9;6;;C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_404.php;f1;6;9;6;;C:\xampp\htdocs\_dailymed\application\views\index.php;f15;381;23;381;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="method;PHP:Var Name;C:\xampp\htdocs\_dailymed\system\core\CodeIgniter.php;f1;399;8;399;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -25564,12 +25609,12 @@
 					</treenode>
 				</treenode>
 			</treenode>
-			<treenode node="validatePassword;JS:Function Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f0;214;3;222;;C:\xampp\htdocs\_dailymed\application\views\index.php;f0;393;3;401;;;;vpos;;v;;r;;d29,393;;b0,0;;m">
-				<treenode node="document;JS:JS Var Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f17;215;25;215;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f17;149;25;149;;C:\xampp\htdocs\_dailymed\application\views\index.php;f17;394;25;394;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="validatePassword;JS:Function Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f0;214;3;222;;C:\xampp\htdocs\_dailymed\application\views\index.php;f0;409;3;417;;;;vpos;;v;;r;;d29,409;;b0,0;;m">
+				<treenode node="document;JS:JS Var Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f17;215;25;215;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f17;149;25;149;;C:\xampp\htdocs\_dailymed\application\views\index.php;f17;410;25;410;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="pass;JS:JS Var Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f7;216;11;216;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f7;150;11;150;;C:\xampp\htdocs\_dailymed\application\views\index.php;f7;395;11;395;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="pass;JS:JS Var Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f7;216;11;216;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f7;150;11;150;;C:\xampp\htdocs\_dailymed\application\views\index.php;f7;411;11;411;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="re_pass;JS:JS Var Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f7;215;14;215;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f7;149;14;149;;C:\xampp\htdocs\_dailymed\application\views\index.php;f7;394;14;394;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="re_pass;JS:JS Var Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f7;215;14;215;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f7;149;14;149;;C:\xampp\htdocs\_dailymed\application\views\index.php;f7;410;14;410;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="Vb;JS:Function Name;C:\xampp\htdocs\_dailymed\assets\vendor\jquery\jquery.min.js;f17956;3;18098;3;;;;vpos;;v;;r;;d17972,3;;b0,0;;ma;;pb;;p">
@@ -28522,11 +28567,11 @@
 			</treenode>
 			<treenode node="win;JS:JS Var Name;C:\xampp\htdocs\_dailymed\user_guide\_static\js\theme.js;f16;105;19;105;;C:\xampp\htdocs\_dailymed\user_guide\_static\js\oldtheme.js;f12;21;15;21;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\_dailymed\user_guide\_static\jquery.js;f93575;1;93581;1;;C:\xampp\htdocs\_dailymed\user_guide\_static\js\theme.js;f2;82;8;82;;C:\xampp\htdocs\_dailymed\user_guide\_static\js\oldtheme.js;f0;18;6;18;;C:\xampp\htdocs\_dailymed\assets\vendor\jquery\jquery.min.js;f232;1;238;1;;C:\xampp\htdocs\_dailymed\assets\vendor\jquery\jquery.js;f9;37;15;37;;C:\xampp\htdocs\_dailymed\assets\vendor\bootstrap\js\bootstrap.js;f4;523;10;523;;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f2;210;8;210;;C:\xampp\htdocs\_dailymed\application\views\index.php;f2;389;8;389;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-				<treenode node="onload;JS:Function Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f9;210;3;213;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f9;144;3;147;;C:\xampp\htdocs\_dailymed\application\views\index.php;f9;389;3;392;;;;vpos;;v;;r;;d30,389;;b0,0;;m">
-					<treenode node="document;JS:JS Var Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f3;211;11;211;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f3;145;11;145;;C:\xampp\htdocs\_dailymed\application\views\index.php;f3;390;11;390;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="window;JS:JS Var Name;C:\xampp\htdocs\_dailymed\user_guide\_static\jquery.js;f93575;1;93581;1;;C:\xampp\htdocs\_dailymed\user_guide\_static\js\theme.js;f2;82;8;82;;C:\xampp\htdocs\_dailymed\user_guide\_static\js\oldtheme.js;f0;18;6;18;;C:\xampp\htdocs\_dailymed\assets\vendor\jquery\jquery.min.js;f232;1;238;1;;C:\xampp\htdocs\_dailymed\assets\vendor\jquery\jquery.js;f9;37;15;37;;C:\xampp\htdocs\_dailymed\assets\vendor\bootstrap\js\bootstrap.js;f4;523;10;523;;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f2;210;8;210;;C:\xampp\htdocs\_dailymed\application\views\index.php;f2;405;8;405;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="onload;JS:Function Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f9;210;3;213;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f9;144;3;147;;C:\xampp\htdocs\_dailymed\application\views\index.php;f9;405;3;408;;;;vpos;;v;;r;;d30,405;;b0,0;;m">
+					<treenode node="document;JS:JS Var Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f3;211;11;211;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f3;145;11;145;;C:\xampp\htdocs\_dailymed\application\views\index.php;f3;406;11;406;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="validatePassword;JS:JS Var Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f54;211;70;211;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f54;145;70;145;;C:\xampp\htdocs\_dailymed\application\views\index.php;f54;390;70;390;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="validatePassword;JS:JS Var Name;C:\xampp\htdocs\_dailymed\application\views\v_found.php;f54;211;70;211;;C:\xampp\htdocs\_dailymed\application\views\Codelobster0.php;f54;145;70;145;;C:\xampp\htdocs\_dailymed\application\views\index.php;f54;406;70;406;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="jQuery;JS:JS Var Name;C:\xampp\htdocs\_dailymed\assets\vendor\jquery\jquery.js;f8;11003;14;11003;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -28724,8 +28769,6 @@
 			<todo name="@todo - this needs to be made more general purpose" pos="6;1574"/>
 		</todofile>
 	</todoblock>
-	<dbgurls>
-	</dbgurls>
 	<filescache>
 		<file name="C:\xampp\htdocs\_dailymed\user_guide\_static\js\theme.js" crc="850474250"/>
 		<file name="C:\xampp\htdocs\_dailymed\user_guide\_static\js\oldtheme.js" crc="1504178261"/>
@@ -28975,9 +29018,9 @@
 		<file name="C:\xampp\htdocs\_dailymed\application\views\errors\cli\error_404.php" crc="-1295215938"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\views\welcome_message.php" crc="1127150116"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\views\v_found.php" crc="-991131067"/>
-		<file name="C:\xampp\htdocs\_dailymed\application\views\index.php" crc="1994974855"/>
+		<file name="C:\xampp\htdocs\_dailymed\application\views\index.php" crc="916663429"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\views\example.php" crc="1819723968"/>
-		<file name="C:\xampp\htdocs\_dailymed\application\models\user_model.php" crc="-1007212826"/>
+		<file name="C:\xampp\htdocs\_dailymed\application\models\user_model.php" crc="-1136148523"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\models\drugs_model.php" crc="1763525468"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\libraries\REST_Controller.php" crc="-1972678908"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\libraries\Format.php" crc="-105130602"/>
@@ -28987,10 +29030,10 @@
 		<file name="C:\xampp\htdocs\_dailymed\application\libraries\CI_phpStorm.php" crc="807964330"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\libraries\CI_IntelliSense.php" crc="-720633567"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\controllers\api\drug.php" crc="1771231298"/>
-		<file name="C:\xampp\htdocs\_dailymed\application\controllers\med.php" crc="-1354842943"/>
+		<file name="C:\xampp\htdocs\_dailymed\application\controllers\med.php" crc="1984620849"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\config\user_agents.php" crc="-623477993"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\config\smileys.php" crc="-1146135262"/>
-		<file name="C:\xampp\htdocs\_dailymed\application\config\routes.php" crc="1648616606"/>
+		<file name="C:\xampp\htdocs\_dailymed\application\config\routes.php" crc="-264194917"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\config\rest.php" crc="1745042444"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\config\profiler.php" crc="-283428590"/>
 		<file name="C:\xampp\htdocs\_dailymed\application\config\mimes.php" crc="-668402077"/>

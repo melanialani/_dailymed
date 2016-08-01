@@ -18,7 +18,7 @@
     <!-- Custom Fonts -->
     <!--link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/vendor/font-awesome/css/font-awesome.min.css"); ?>" />
-    
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -82,7 +82,7 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Provides users with access to current Structured Product Language (SPL) information 
+                <div class="intro-lead-in">Provides users with access to current Structured Product Language (SPL) information
                         	about marketed drugs</div>
                 <div class="intro-heading">YOUR DAILY MEDICATION</div>
                 <a href="#resources" class="page-scroll btn btn-xl">Our Resources</a>
@@ -96,14 +96,14 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Resources</h2>
-                    <h3 class="section-subheading text-muted">Provides users with access to current Structured Product Language (SPL) 
-                    	information about marketed drugs. The data provided by this service is the most recent provided to the FDA. Users 
-                    	can query this RESTful service using a variety of parameters, including prescription or over the counter, 
-                        human or animal drugs, drug name, drug imprint data, and National Drug Code (NDC). This free service returns 
+                    <h3 class="section-subheading text-muted">Provides users with access to current Structured Product Language (SPL)
+                    	information about marketed drugs. The data provided by this service is the most recent provided to the FDA. Users
+                    	can query this RESTful service using a variety of parameters, including prescription or over the counter,
+                        human or animal drugs, drug name, drug imprint data, and National Drug Code (NDC). This free service returns
                         data as XML or JSON based on user specificaiton.</h3>
                 </div>
             </div>
-            
+
             <table class="table table-striped">
             	<tr>
             		<td><b>/drug/ndc?code={SETCODE}&key={USERKEY}</b></td>
@@ -172,7 +172,7 @@
             </table>
         </div>
     </section>
-    
+
     <!-- Status/Register/Login Section -->
     <?php
     	if ($email == "" || $email == NULL){ // register/login section
@@ -195,7 +195,7 @@
 					                    <p class="text-muted">Join us to start using our service</p>
 				                    </div>
 				                </div>
-				                
+
 				                <div class="col-md-4 col-sm-6 portfolio-item">
 				                    <a href="#login_modal" class="portfolio-link" data-toggle="modal">
 				                        <h4>Login</h4>
@@ -222,6 +222,7 @@
 			                    <br/>
 			                    <div class="portfolio-caption">
 			                        <h4 style="color:white;">Total request : ' . $req . '</h4>
+                                    <h4 style="color:white;">Total limit : ' . $lim . '</h4>
 			                    </div>
 			                </div>
 			            </div>
@@ -236,7 +237,7 @@
     		';
     	}
     ?>
-    
+
     <!-- Payment Section -->
     <section id="payment">
         <div class="container">
@@ -259,7 +260,22 @@
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading"><a class="page-scroll" style="color: black;" href="#paypal">PayPal</a></h4>
+                    <?php if ($email == "" || $email == NULL){ ?>
+                        <h4 class="service-heading"><a class="page-scroll" style="color: black;" href="https://www.paypal.com">PayPal</a></h4>
+                    <?php } else { ?>
+                        <h4 class="service-heading"><a class="page-scroll" style="color: black;" href="https://www.paypal.com">PayPal</a></h4>
+    					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    						<input type="hidden" name="cmd" value="_s-xclick">
+    						<input type="hidden" name="hosted_button_id" value="4698FT9AWAE5N">
+    						<input type="image" src="https://www.paypalobjects.com/id_ID/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    						<img alt="" border="0" src="https://www.paypalobjects.com/id_ID/i/scr/pixel.gif" width="1" height="1">
+    					</form>
+                        <form action="<?php echo base_url(); ?>index.php/payment_limit" method="post" >
+                            <input type="hidden" id="txt_key" name="txt_key" value="<?php echo $key; ?>" />
+                            <input type="submit" class="btn btn-primary" id="btn_pay" name="btn_pay" value="PAYMENT DONE" />
+                        </form>
+                    <?php } ?>
+                    <!---->
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -298,9 +314,9 @@
                             <!-- Project Details Go Here -->
                             <h2>Register</h2>
                             <p class="item-intro text-muted">Join us to start using our service</p>
-                            
+
                             <?php echo form_open('med/register', "role='form'"); ?>
-								<fieldset> 
+								<fieldset>
 	                            	<div class="col-lg-12 text-center">
 		                                <div class="form-group">
 		                                    <input type="email" class="form-control" placeholder="Your Email *" id="new_email" name="new_email" required data-validation-required-message="Please enter your email address.">
@@ -316,7 +332,7 @@
 		                                </div>
 		                            </div>
 	                            	<?php echo form_submit(['id'=>'register','name'=>'register','value'=>'Register','class'=>'btn btn-primary']); ?>
-                            	</fieldset> 
+                            	</fieldset>
 							<?php echo form_close(); ?>
                         </div>
                     </div>
@@ -340,9 +356,9 @@
                             <!-- Project Details Go Here -->
                             <h2>Login</h2>
                             <p class="item-intro text-muted">Login to see your status & make payment</p>
-                            
+
                             <?php echo form_open('med/login', "role='form'"); ?>
-								<fieldset> 
+								<fieldset>
 	                            	<div class="col-lg-12 text-center">
 		                                <div class="form-group">
 		                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" name="email" required data-validation-required-message="Please enter your email address.">
@@ -354,7 +370,7 @@
 		                                </div>
 		                            </div>
 	                            	<?php echo form_submit(['id'=>'login','name'=>'login','value'=>'Login','class'=>'btn btn-primary']); ?>
-	                            </fieldset> 
+	                            </fieldset>
 							<?php echo form_close(); ?>
                         </div>
                     </div>
@@ -362,7 +378,7 @@
             </div>
         </div>
     </div>
-    
+
     <?php echo $message; ?>
 
     <!-- jQuery -->
@@ -385,7 +401,7 @@
     <!-- Theme JavaScript -->
     <!--script src="js/agency.min.js"></script-->
     <script src="<?php echo base_url("assets/js/agency.min.js"); ?>"></script>
-    
+
     <script type="text/javascript">
 		window.onload = function () {
 			document.getElementById("new_password").onchange = validatePassword;
@@ -397,7 +413,7 @@
 			if(pass != re_pass)
 				document.getElementById("re_password").setCustomValidity("Passwords Don't Match");
 			else
-				document.getElementById("re_password").setCustomValidity('');	 
+				document.getElementById("re_password").setCustomValidity('');
 			//empty string means no validation error
 		}
 	</script>
