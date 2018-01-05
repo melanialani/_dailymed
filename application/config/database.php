@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'dailymed',
-	'dbdriver' => 'mysqli',
+	'hostname' => 'pgsql:host=pgtdev.ddns.net;port=5432;dbname=webpos2017',
+	'username' => 'postgres',
+	'password' => 'admin',
+	'database' => 'webpos2017',
+	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

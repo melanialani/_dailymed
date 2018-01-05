@@ -1,0 +1,126 @@
+ >> Server Started
+ >> Client No: 1 started!
+ >> From client(1): GET;all?format=json&idspbu=01
+ >> counter_totalizer_tangki : 0..12
+counter_totalizer : 0..12
+counter_transaksi : 0..1
+status_kalibrasi : NULL
+status_tangki : NULL
+status_lock : NOT FOUND
+status_realtime : NOT FOUND
+status_ganti_harga : NOT FOUND
+
+ >> From client(1): GET;card?format=json&idspbu=01&idpelanggan=03&idcard=0&nik=0&idring=0&idunit=0
+ >> message : BOTH ID CARD AND NIK ARE 0
+
+ >> From client(1): GET;card?format=json&idspbu=01&idpelanggan=03&idcard=CB1D5FAA01&nik=0&idring=CB1D5FAB01&idunit=U04
+ >> result : {
+  "operator": [
+    {
+      "id_card": "CB1D5FAA01",
+      "nik": "UNK347",
+      "nama": "Waluyo",
+      "phone": "082301301700",
+      "status": "1",
+      "id_pelanggan": "01"
+    }
+  ],
+  "ring": [
+    {
+      "id_ring": "CB1D5FAB01",
+      "cluster_ring": "01",
+      "group_ring": "B",
+      "installation_date": 1509586231,
+      "created_date": 1509586231,
+      "status": "1",
+      "sisa_quota": "200",
+      "id_pelanggan": "01",
+      "jenisbbm": null,
+      "jenislimitasi": null,
+      "waktulimitasi": null
+    }
+  ],
+  "unit": [
+    {
+      "id_unit": "U04",
+      "unit_name": "TM 888",
+      "nopol": "L 678 AG",
+      "brand": "6",
+      "status_unit": "0",
+      "owner": "1",
+      "location": "01",
+      "id_pelanggan": "01",
+      "created": 1510813790,
+      "cluster_unit": "01"
+    }
+  ]
+}
+
+ >> From client(1): GET;card?format=json&idspbu=01&idpelanggan=03&idcard=0&nik=UNK348&idring=CB1D5FAB01&idunit=U04
+ >> result : {
+  "operator": [
+    {
+      "id_card": "CB1D5FAA02",
+      "nik": "UNK348",
+      "nama": "Bambang",
+      "phone": "081232318011",
+      "status": "1",
+      "id_pelanggan": "01"
+    }
+  ],
+  "ring": [
+    {
+      "id_ring": "CB1D5FAB01",
+      "cluster_ring": "01",
+      "group_ring": "B",
+      "installation_date": 1509586231,
+      "created_date": 1509586231,
+      "status": "1",
+      "sisa_quota": "200",
+      "id_pelanggan": "01",
+      "jenisbbm": null,
+      "jenislimitasi": null,
+      "waktulimitasi": null
+    }
+  ],
+  "unit": [
+    {
+      "id_unit": "U04",
+      "unit_name": "TM 888",
+      "nopol": "L 678 AG",
+      "brand": "6",
+      "status_unit": "0",
+      "owner": "1",
+      "location": "01",
+      "id_pelanggan": "01",
+      "created": 1510813790,
+      "cluster_unit": "01"
+    }
+  ]
+}
+
+ >> From client(1): GET;settingtp?format=json&idspbu=02
+ >> result : [
+  {
+    "id_setting_bbm": "ST-230489",
+    "id_bbm": "2",
+    "id_tangki": "4",
+    "id_spbu": 2,
+    "shift": null,
+    "harga": "7500           ",
+    "update_harga": null,
+    "update_tgl": "2017-11-05 16:49:38      ",
+    "status_harga": "1              ",
+    "s_lock": null,
+    "s_realtime": "33",
+    "id_setting_dispenser": "002",
+    "id_tp": "1",
+    "id_tangki_setting_dispenser": "1",
+    "id_nozle": "3",
+    "id_dispenser": "1",
+    "id_cnt_pompa": null,
+    "id_cnt_nozle": null,
+    "id_problem": null
+  }
+]
+

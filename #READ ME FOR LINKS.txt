@@ -1,0 +1,89 @@
+CONTOH LINK AKSES UNTUK REST API
+
+webservice kosongan mas adit yg lama :: http://pgtdev.ddns.net/rest_wp2/main/all?uid/01
+
+GET all ::
+-> pgtdev.ddns.net/_webservice/index.php/api/services/all?format=json&idspbu=01
+
+GET setting tp ::
+-> pgtdev.ddns.net/_webservice/index.php/api/services/settingtp?format=json&idspbu=02
+
+GET card untuk pelanggan biasa ::
+-> pgtdev.ddns.net/_webservice/index.php/api/services/card?format=json&idspbu=01&idpelanggan=03&idcard=0&nik=0&idring=0&idunit=0 
+
+GET card untuk pelanggan khusus dengan menggunakan id kartu ::
+-> pgtdev.ddns.net/_webservice/index.php/api/services/card?format=json&idspbu=01&idpelanggan=03&idcard=CB1D5FAA01&nik=0&idring=CB1D5FAB01&idunit=U04
+
+GET card untuk pelanggan khusus dengan menggunakan NIK ::
+-> pgtdev.ddns.net/_webservice/index.php/api/services/card?format=json&idspbu=01&idpelanggan=03&idcard=0&nik=UNK348&idring=CB1D5FAB01&idunit=U04
+
+POST untuk memasukkan data ke database server, table tangki_totalizer
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/services/tangki_totalizer
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: tgl_jam=1995-12-31 05:08:07&tangki=1&tinggi_air=18&volume_air=122&tinggi_bbm=28&volume_bbm=322&suhu=27&ganti_harga=0&status_atg=1&tangki_id_spbu=01&ctr=12&id_shift=3
+
+POST untuk memasukkan data ke database server, table totalizer
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/services/totalizer
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: tgl_jam=1995-12-31 05:08:07&totalizer_id_spbu=01&dispenser=3&tp=2&nozle=4&bbm=7&harga_satuan=6000&totalizer_awal=12000&totalizer_akhir=12500&tangki=1&operator=CB1D5FAA01&t_tera=1&t_card=2&t_vcr=3&t_rfid=4&status_ganti_harga=0&status=1&shift=3&ctr=12
+
+POST untuk memasukkan data ke database server, table transaksi
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/services/transaksi
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: tgl_jam=1995-12-31 05:08:07&dispenser=1&nozle=2&bbm=3&liter=3&harga=7000&total_harga=21000&id_kartu=test_kartu&id_ring=test_ring5&odometer=75000&ctr=7&idspbu=01&konsumen_id_jenis=3&bayar_id_jenis=2&totalizer=6000&type_procedure=02
+
+========== ///// ========== ///// ========== ///// ========== ///// ========== ///// ==========
+
+CONTOH PESAN DARI COMSERVER KE WEBSERVICE
+
+GET all ::
+-> GET;all?format=json&idspbu=01
+
+GET setting tp ::
+-> GET;settingtp?format=json&idspbu=02
+
+GET card untuk pelanggan biasa ::
+-> GET;card?format=json&idspbu=01&idpelanggan=03&idcard=0&nik=0&idring=0&idunit=0 
+
+GET card untuk pelanggan khusus dengan menggunakan id kartu ::
+-> GET;card?format=json&idspbu=01&idpelanggan=03&idcard=CB1D5FAA01&nik=0&idring=CB1D5FAB01&idunit=U04
+
+GET card untuk pelanggan khusus dengan menggunakan NIK ::
+-> GET;card?format=json&idspbu=01&idpelanggan=03&idcard=0&nik=UNK348&idring=CB1D5FAB01&idunit=U04
+
+POST untuk memasukkan data ke database server, table tangki_totalizer
+-> POST;tangki_totalizer;tgl_jam=1995-12-31 05:08:07&tangki=1&tinggi_air=18&volume_air=122&tinggi_bbm=28&volume_bbm=322&suhu=27&ganti_harga=0&status_atg=1&tangki_id_spbu=01&ctr=12&id_shift=3
+
+POST untuk memasukkan data ke database server, table totalizer
+-> POST;totalizer;tgl_jam=1995-12-31 05:08:07&totalizer_id_spbu=01&dispenser=3&tp=2&nozle=4&bbm=7&harga_satuan=6000&totalizer_awal=12000&totalizer_akhir=12500&tangki=1&operator=CB1D5FAA01&t_tera=1&t_card=2&t_vcr=3&t_rfid=4&status_ganti_harga=0&status=1&shift=3&ctr=12
+
+POST untuk memasukkan data ke database server, table transaksi
+-> POST;transaksi;tgl_jam=1995-12-31 05:08:07&dispenser=1&nozle=2&bbm=3&liter=3&harga=7000&total_harga=21000&id_kartu=CB1D5FAA02&id_ring=CB1D5FAB06&odometer=20000&ctr=11&idspbu=01&konsumen_id_jenis=3&bayar_id_jenis=2&totalizer=6000&type_procedure=02
+
+========== ///// ========== ///// ========== ///// ========== ///// ========== ///// ==========
+
+POST untuk memasukkan data ke database server, table m_operator
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/insert_services/operator
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: id_card=ID001&nik=UK201&nama=test&phone=08123456789&status=1&id_pelanggan=P01
+
+POST untuk memasukkan data ke database server, table m_ring
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/insert_services/ring
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: id_ring=R02&cluster_ring=03&group_ring=C&installation_date=2017-12-25&created_date=2017-12-24&status=1&sisa_quota=15000&id_pelanggan=P01
+
+POST untuk memasukkan data ke database server, table m_unit
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/insert_services/unit
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: id_pelanggan=P01&urutan=12&nama=avanza putih&nopol=L 1024 AW&brand=avanza&status=1&owner=bejo&location=surabaya&cluster_unit=03
+
+POST untuk memasukkan data ke database server, table m_unit
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/insert_services/groupingunit
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: id_unit=UP0112&id_ring=R02&id_pelanggan=P01&id_card=ID001&urutan=3
+
+========== ///// ========== ///// ========== ///// ========== ///// ========== ///// ==========
+
+CATATAN LAINNYA 
+
+Counter mulai dari 0
