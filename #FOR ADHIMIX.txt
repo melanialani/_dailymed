@@ -1,0 +1,54 @@
+UNTUK ADHIMIX, TOLONG MEMASUKKAN DATA OPERATOR, UNIT, RING, DAN GROUPING RING-UNIT YANG SUDAH ADA
+TUJUAN: AGAR SISTEM PGT BISA MEMBACA OPERATOR, UNIT, RING, DAN GROUPING RING-UNIT UNTUK PENGISIAN BBM
+
+POST untuk memasukkan data ke database server, table m_operator
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/insert_services/operator
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: id_card=ID001&nik=UK201&nama=test&phone=08123456789&status=1&id_pelanggan=P01
+-> PENJELASAN DARI PARAMETER RAW BODY YANG HARUS DIKIRIM ::
+	-> id_card = id kartu
+	-> nik = nik pegawai
+	-> nama = nama pegawai
+	-> phone = nomor telp pegawai
+	-> status = status aktif pegawai, 1 untuk pegawai yang aktif, dan 0 untuk pegawai yang tidak aktif
+	//-> id_pelanggan = id spbu (untuk adhimix, id_pelanggan = 01)
+	
+POST untuk memasukkan data ke database server, table m_ring
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/insert_services/ring
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: id_ring=R02&cluster_ring=03&group_ring=C&installation_date=2017-12-25&created_date=2017-12-24&status=1&sisa_quota=15000&id_pelanggan=P01
+-> PENJELASAN DARI PARAMETER RAW BODY YANG HARUS DIKIRIM ::
+	-> id_ring = id ring
+	-> cluster_ring = jenis ring (01 = truck molen, 02 = wheel loader, 03 = DGS, 04 = genset)
+	-> group_ring = 
+	-> installation_date = tanggal ring di-install (dipasang)
+	//-> created_date = tanggal saat ini (tanggal pemasukan data ke database)
+	-> status = status aktif ring, 1 untuk ring yang aktif, dan 0 untuk ring yang tidak aktif
+	-> sisa_quota = kuota/saldo untuk ring tersebut (per-hari)
+	//-> id_pelanggan = id spbu (untuk adhimix, id_pelanggan = 01)
+
+POST untuk memasukkan data ke database server, table m_unit
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/insert_services/unit
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: id_pelanggan=P01&urutan=12&nama=avanza putih&nopol=L 1024 AW&brand=avanza&status=1&owner=bejo&location=surabaya&cluster_unit=03
+-> PENJELASAN DARI PARAMETER RAW BODY YANG HARUS DIKIRIM ::
+	//-> id_pelanggan = id spbu (untuk adhimix, id_pelanggan = 01)
+	-> urutan = 
+	-> nama = nama unit (kendaraan)
+	-> nopol = plat nomor unit
+	-> brand = merek kendaraan
+	-> status = status aktif unit, 1 untuk unit yang aktif, dan 0 untuk unit yang tidak aktif
+	-> owner = nama pemilik kendaraan
+	-> location = posisi kendaraan saat ini
+	-> cluster_unit = 
+
+POST untuk memasukkan data ke database server, table m_unit
+-> URL :: pgtdev.ddns.net/_webservice/index.php/api/insert_services/groupingunit
+-> CONTENT TYPE :: application/x-www-form-urlencoded
+-> RAW BODY :: id_unit=UP0112&id_ring=R02&id_pelanggan=P01&id_card=ID001&urutan=3
+-> PENJELASAN DARI PARAMETER RAW BODY YANG HARUS DIKIRIM ::
+	-> id_unit = id unit yang akan dikelompokkan dengan ring
+	-> id_ring = id ring yang akan dikelompokkan dengan unit tersebut
+	//-> id_pelanggan = id spbu (untuk adhimix, id_pelanggan = 01)
+	-> id_card = id kartu pegawai untuk unit dan ring tersebut
+	-> urutan = 

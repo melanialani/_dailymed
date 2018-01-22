@@ -32,8 +32,8 @@ Class Insert_Model extends CI_Model {
         return $this->db->affected_rows();
 	}
 	
-	public function insertTTotalizer($tglJam, $totalizerIdSpbu, $dispenser, $tp, $nozle, $bbm, $hargaSatuan, $totalizerAwal, $totalizerAkhir,
-	$tangki, $operator, $tTera, $tCard, $tVcr, $tRfid, $statusGantiHarga, $status, $shift, $ctr){
+	public function insertTTotalizer($tglJam, $totalizerIdSpbu, $dispenser, $tp, $nozle, $bbm, $hargaSatuan, $totalizer,
+	$tangki, $operator, $tTera, $tCard, $tVcr, $tRfid, $statusGantiHarga, $shift, $ctr){
         $myArr = array(
         	'tgl_jam' 			=> strtotime($tglJam),
         	'totalizer_id_spbu' => $totalizerIdSpbu,
@@ -42,8 +42,7 @@ Class Insert_Model extends CI_Model {
         	'nozle' 			=> $nozle,
         	'bbm' 				=> $bbm,
         	'harga_satuan' 		=> $hargaSatuan,
-        	'totalizer_awal' 	=> $totalizerAwal,
-        	'totalizer_akhir' 	=> $totalizerAkhir,
+        	'totalizer' 		=> $totalizer,
         	'tangki' 			=> $tangki,
         	'operator' 			=> $operator,
         	't_tera' 			=> $tTera,
@@ -51,7 +50,6 @@ Class Insert_Model extends CI_Model {
         	't_vcr' 			=> $tVcr,
         	't_rfid' 			=> $tRfid,
         	'status_ganti_harga'=> $statusGantiHarga,
-        	'status' 			=> $status,
         	'shift' 			=> $shift,
         	'nocount' 			=> $ctr
         );
@@ -78,6 +76,23 @@ Class Insert_Model extends CI_Model {
         );
 		
         $this->db->insert('public.t_tangki_totalizer', $myArr);
+        return $this->db->affected_rows();
+	}
+	
+	public function insertTTangkiRealtime($tglJam, $tangki, $tinggiAir, $volumeAir, $tinggiBbm, $volumeBbm, $suhu, $ctr, $idSpbu){
+        $myArr = array(
+        	'tgl_jam' 			=> strtotime($tglJam),
+        	'tangki' 			=> $tangki,
+        	'tinggi_air' 		=> $tinggiAir,
+        	'volume_air'		=> $volumeAir,
+        	'tinggi_bbm' 		=> $tinggiBbm,
+        	'volume_bbm' 		=> $volumeBbm,
+        	'suhu' 				=> $suhu,
+        	'nocount' 			=> $ctr,
+        	'id_spbu' 			=> $idSpbu
+        );
+		
+        $this->db->insert('public.t_tangki_realtime', $myArr);
         return $this->db->affected_rows();
 	}
 	
@@ -143,6 +158,18 @@ Class Insert_Model extends CI_Model {
         );
 		
         $this->db->insert('pelanggan.grouping_unit', $myArr);
+        return $this->db->affected_rows();
+	}
+	
+	public function insertLogUbahHargaPelanggan($idClusterPelanggan, $harga, $bbm){
+		$myArr = array(
+        	'id_cluster_pelanggan'	=> $idClusterPelanggan,
+			'tgl_update_harga'		=> time(date('Y-m-d H:i:s')),
+			'harga'					=> $harga,
+			'bbm'					=> $bbm
+        );
+		
+        $this->db->insert('pelanggan.l_ubah_harga_pelanggan', $myArr);
         return $this->db->affected_rows();
 	}
 	

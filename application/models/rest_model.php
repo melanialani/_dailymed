@@ -6,7 +6,6 @@ Class Rest_Model extends CI_Model {
         parent::__construct();
         $this->load->database();
         $this->load->model('get_model');
-        $this->load->model('update_model');
     }
 
     public function getAll($idSpbu){
@@ -16,9 +15,10 @@ Class Rest_Model extends CI_Model {
     	$from_db['s_setting_harga_bbm'] = $this->get_model->getSSettingHargaBbm($idSpbu);
     	$from_db['s_settingdispenser'] = $this->get_model->getSSettingDispenser($idSpbu);
     	
-    	$return['counter_totalizer_tangki'] = $this->get_model->getCounterTTangkiTotalizer($idSpbu);
-    	$return['counter_totalizer'] = $this->get_model->getCounterTTotalizer($idSpbu);
-    	$return['counter_transaksi'] = $this->get_model->getCounterTTransaksi($idSpbu);
+    	$return['counter_realtime_tangki'] = strval($this->get_model->getCounterTTangkiRealtime($idSpbu));
+    	$return['counter_totalizer_tangki'] = strval($this->get_model->getCounterTTangkiTotalizer($idSpbu));
+    	$return['counter_totalizer'] = strval($this->get_model->getCounterTTotalizer($idSpbu));
+    	$return['counter_transaksi'] = strval($this->get_model->getCounterTTransaksi($idSpbu));
     	
     	if ($from_db['m_tangki'] != NULL){
 			if ($from_db['m_tangki'][0]['status_kalibrasi'] != NULL) 
@@ -75,7 +75,8 @@ Class Rest_Model extends CI_Model {
 			AND s_setting_bbm.id_spbu = '.$idSpbu.'
 		ORDER BY s_settingdispenser.id_tp';
     	
-        return $this->db->query($sqlSyntax)->result_array();
+    	$result = $this->db->query($sqlSyntax)->row_array();
+        return $result;
 	}
 	
 	public function getCard($idSpbu, $param){
@@ -89,25 +90,25 @@ Class Rest_Model extends CI_Model {
 			if (isset($param['id_pelanggan'])){ 
 				$pelanggan = $this->get_model->getMPelanggan($param['id_pelanggan']);
 				
-				if (isset($pelanggan)){
+				if (isset($pelanggan) && $pelanggan != NULL){
 					//$response['pelanggan'] = $pelanggan;
 					if ($pelanggan[0]['jenis_konsumen'] == 0){ // pelanggan biasa
-						$response['result'] = $this->getCardBiasa($idSpbu, $param['id_pelanggan']);
+						$response = $this->getCardBiasa($idSpbu, $param['id_pelanggan']);
 					} else if ($pelanggan[0]['jenis_konsumen'] == 3){ // pelanggan khusus
 						if (isset($param['id_card']) && isset($param['nik'])){
 							if ($param['id_card'] == '0' && $param['nik'] != '0'){ // enter pakai nik
-								$response['result'] = $this->getCardKhususNoScheduleNoFixedOperator($idSpbu, $param['nik'], false, $param['id_ring'], $param['id_unit']);
+								$response = $this->getCardKhususByNikSeeGroupingUnit($param['nik']);
 							} else if ($param['id_card'] != '0' && $param['nik'] == '0'){ // enter pakai id_card
-								$response['result'] = $this->getCardKhususNoScheduleNoFixedOperator($idSpbu, $param['id_card'], true, $param['id_ring'], $param['id_unit']);
-							} else if ($param['id_card'] == '0' && $param['nik'] == '0'){ // enter pakai id_card
-								$response['message'] = 'BOTH ID CARD AND NIK ARE 0';
+								$response = $this->getCardKhususByIdCardSeeGroupingUnit($param['id_card']);
+							} else if ($param['id_card'] == '0' && $param['nik'] == '0'){ // id_card dan nik kosong (0)
+								$response['status'] = 'BOTH ID CARD AND NIK ARE 0';
 							}
-						} else $response['message'] = 'ID CARD OR NIK NOT FOUND';
-					} else $response['message'] = 'JENIS KONSUMEN NOT DEFINED';
-				} else $response['message'] = 'PELANGGAN NULL'; 
-			} else $response['message'] = 'ID PELANGGAN NULL'; 
+						} else $response['status'] = 'ID CARD OR NIK NOT FOUND';
+					} else $response['status'] = 'JENIS KONSUMEN NOT DEFINED';
+				} else $response['status'] = 'PELANGGAN NULL'; 
+			} else $response['status'] = 'ID PELANGGAN NULL'; 
 		} else {
-			$response['message'] = 'ID PELANGGAN NOT FOUND';
+			$response['status'] = 'ID PELANGGAN NOT FOUND';
 		}
 		
 		return $response;
@@ -131,30 +132,164 @@ Class Rest_Model extends CI_Model {
 		WHERE m_pelanggan.id_pelanggan = m_armada.armada_id_pelanggan
 			AND m_pelanggan.id_pelanggan = '".$idPelanggan."'";
 			
-		$return = $this->db->query($sql)->result_array();
-		return $return;
+		$result = $this->db->query($sql)->row_array();
+		return $result;
 	}
 	
-	public function getCardKhususNoScheduleNoFixedOperator($idSpbu, $idCardOrNik, $isUsingCard, $idRing, $idUnit){
-		if ($isUsingCard){
-			$operator = $this->get_model->getMOperatorByCard($idCardOrNik);
-		} else if (!$isUsingCard){
-			$operator = $this->get_model->getMOperatorByNik($idCardOrNik);
-		} else return $return['message'] = 'ID CARD OR NIK NOT FOUND';
-		
-		$ring = $this->get_model->getMRing($idRing);
-		$unit = $this->get_model->getMUnit($idUnit);
-		
-		if ($operator == NULL) return $return['message'] = 'OPERATOR IS NOT FOUND';
-		else if ($ring == NULL) return $return['message'] = 'RING IS NOT FOUND';
-		else if ($unit == NULL) return $return['message'] = 'UNIT IS NOT FOUND';
-		else { // if no null values, return result from 3 table
-			$return['operator'] = $operator;
-			$return['ring'] = $ring;
-			$return['unit'] = $unit;
+	// v1 - look into table m_unit, m_ring, and m_operator, doesnt see table grouping_unit
+	public function getCardKhususByNik($nik){
+		$sql = "
+		SELECT op.status, op.id_card AS id_kartu, op.nik, ring.id_ring, unit.unit_name, ring.sisa_quota AS saldo, 
+			ring.jenislimitasi AS limitasi, ring.jenisbbm
+		FROM pelanggan.m_operator op, pelanggan.m_unit unit, pelanggan.m_ring ring
+		WHERE op.nik = '".$nik."'
+			AND op.id_pelanggan = unit.id_pelanggan
+			AND op.id_pelanggan = ring.id_pelanggan";
 			
-			return $return;
+		$result = $this->db->query($sql)->row_array();
+		if ($result != NULL){
+			// convert any int to string 'cuz comserver vb6 split by " "
+	    	$result['limitasi'] = strval($result['limitasi']);
+	    	$result['jenisbbm'] = strval($result['jenisbbm']);
 		}
+    	
+		return $result;
+	}
+	
+	// v1 - look into table m_unit, m_ring, and m_operator, doesnt see table grouping_unit
+	public function getCardKhususByIdCard($idCard){
+		$sql = "
+		SELECT op.status, op.id_card AS id_kartu, op.nik, ring.id_ring, unit.unit_name, ring.sisa_quota AS saldo, 
+			ring.jenislimitasi AS limitasi, ring.jenisbbm
+		FROM pelanggan.m_operator op, pelanggan.m_unit unit, pelanggan.m_ring ring
+		WHERE op.id_card = '".$idCard."'
+			AND op.id_pelanggan = unit.id_pelanggan
+			AND op.id_pelanggan = ring.id_pelanggan";
+			
+		$result = $this->db->query($sql)->row_array();
+		if ($result != NULL){
+			// convert any int to string 'cuz comserver vb6 split by " "
+	    	$result['limitasi'] = strval($result['limitasi']);
+	    	$result['jenisbbm'] = strval($result['jenisbbm']);
+		}
+		
+		return $result;
+	}
+	
+	// v2 - look into table grouping_unit, m_unit, m_ring, and m_operator
+	public function getCardKhususByNikSeeGroupingUnit($nik){
+		$sql = "
+		SELECT op.status, op.id_card AS id_kartu, op.nik, ring.id_ring, unit.unit_name, ring.sisa_quota AS saldo, 
+			ring.jenislimitasi AS limitasi, ring.jenisbbm
+		FROM pelanggan.m_operator op, pelanggan.m_unit unit, pelanggan.m_ring ring, pelanggan.grouping_unit gp
+		WHERE op.nik = '".$nik."'
+			AND gp.id_card = op.id_card
+			AND ring.id_ring = gp.id_ring
+			AND unit.id_unit = gp.id_unit";
+			
+		$result = $this->db->query($sql)->row_array();
+		if ($result != NULL){
+			// convert any int to string 'cuz comserver vb6 split by " "
+	    	$result['limitasi'] = strval($result['limitasi']);
+	    	$result['jenisbbm'] = strval($result['jenisbbm']);
+		}
+    	
+		return $result;
+	}
+	
+	// v2 - look into table grouping_unit, m_unit, m_ring, and m_operator
+	public function getCardKhususByIdCardSeeGroupingUnit($idCard){
+		$sql = "
+		SELECT op.status, op.id_card AS id_kartu, op.nik, ring.id_ring, unit.unit_name, ring.sisa_quota AS saldo, 
+			ring.jenislimitasi AS limitasi, ring.jenisbbm
+		FROM pelanggan.m_operator op, pelanggan.m_unit unit, pelanggan.m_ring ring, pelanggan.grouping_unit gp
+		WHERE op.id_card = '".$idCard."'
+			AND gp.id_card = op.id_card
+			AND ring.id_ring = gp.id_ring
+			AND unit.id_unit = gp.id_unit";
+			
+		$result = $this->db->query($sql)->row_array();
+		if ($result != NULL){
+			// convert any int to string 'cuz comserver vb6 split by " "
+	    	$result['limitasi'] = strval($result['limitasi']);
+	    	$result['jenisbbm'] = strval($result['jenisbbm']);
+		}
+    	
+		return $result;
+	}
+	
+	// v3 - look into table schedule_plant,, grouping_unit, m_unit, m_ring, and m_operator
+	public function getCardKhususByNikSeeSchedulePlant($nik){
+		$sql = "
+		SELECT op.status, op.id_card AS id_kartu, op.nik, ring.id_ring, unit.unit_name, ring.sisa_quota AS saldo, 
+			ring.jenislimitasi AS limitasi, ring.jenisbbm
+		FROM pelanggan.m_operator op, pelanggan.m_unit unit, pelanggan.m_ring ring, pelanggan.grouping_unit gp, schedule_plant sp
+		WHERE op.nik = '".$nik."'
+			AND op.id_card = sp.id_card
+			AND sp.id_grouping = gp.id_grouping
+			AND gp.id_ring = ring.id_ring
+			AND gp.id_unit = unit.id_unit";
+			
+		$result = $this->db->query($sql)->row_array();
+		if ($result != NULL){
+			// convert any int to string 'cuz comserver vb6 split by " "
+	    	$result['limitasi'] = strval($result['limitasi']);
+	    	$result['jenisbbm'] = strval($result['jenisbbm']);
+		}
+    	
+		return $result;
+	}
+	
+	// v3 - look into table schedule_plant,, grouping_unit, m_unit, m_ring, and m_operator
+	public function getCardKhususByIdCardSeeSchedulePlant($idCard){
+		$sql = "
+		SELECT op.status, op.id_card AS id_kartu, op.nik, ring.id_ring, unit.unit_name, ring.sisa_quota AS saldo, 
+			ring.jenislimitasi AS limitasi, ring.jenisbbm
+		FROM pelanggan.m_operator op, pelanggan.m_unit unit, pelanggan.m_ring ring, pelanggan.grouping_unit gp, schedule_plant sp
+		WHERE op.id_card = '".$idCard."'
+			AND op.id_card = sp.id_card
+			AND sp.id_grouping = gp.id_grouping
+			AND gp.id_ring = ring.id_ring
+			AND gp.id_unit = unit.id_unit";
+			
+		$result = $this->db->query($sql)->row_array();
+		if ($result != NULL){
+			// convert any int to string 'cuz comserver vb6 split by " "
+	    	$result['limitasi'] = strval($result['limitasi']);
+	    	$result['jenisbbm'] = strval($result['jenisbbm']);
+		}
+    	
+		return $result;
+	}
+	
+	// v3 - look into schedule plant -> then grouping_unit -> then m_ring and m_unit
+	public function getCardWithSchedulePlant($idSpbu, $param){
+		if (array_key_exists('id_pelanggan', $param)){
+			if (isset($param['id_pelanggan'])){ 
+				$pelanggan = $this->get_model->getMPelanggan($param['id_pelanggan']);
+				
+				if (isset($pelanggan) && $pelanggan != NULL){
+					//$response['pelanggan'] = $pelanggan;
+					if ($pelanggan[0]['jenis_konsumen'] == 0){ // pelanggan biasa
+						$response = $this->getCardBiasa($idSpbu, $param['id_pelanggan']);
+					} else if ($pelanggan[0]['jenis_konsumen'] == 3){ // pelanggan khusus
+						if (isset($param['id_card']) && isset($param['nik'])){
+							if ($param['id_card'] == '0' && $param['nik'] != '0'){ // enter pakai nik
+								$response = $this->getCardKhususByNikSeeGroupingUnit($param['nik']);
+							} else if ($param['id_card'] != '0' && $param['nik'] == '0'){ // enter pakai id_card
+								$response = $this->getCardKhususByIdCardSeeGroupingUnit($param['id_card']);
+							} else if ($param['id_card'] == '0' && $param['nik'] == '0'){ // id_card dan nik kosong (0)
+								$response['status'] = 'BOTH ID CARD AND NIK ARE 0';
+							}
+						} else $response['status'] = 'ID CARD OR NIK NOT FOUND';
+					} else $response['status'] = 'JENIS KONSUMEN NOT DEFINED';
+				} else $response['status'] = 'PELANGGAN NULL'; 
+			} else $response['status'] = 'ID PELANGGAN NULL'; 
+		} else {
+			$response['status'] = 'ID PELANGGAN NOT FOUND';
+		}
+		
+		return $response;
 	}
 	
 	public function postTransaksi(){

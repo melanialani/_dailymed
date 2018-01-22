@@ -7,6 +7,13 @@ Class Update_Model extends CI_Model {
         $this->load->database();
     }
     
+    public function updateKuotaRing($idRing, $kuota){
+		$myArr = array( 'sisa_quota' => $kuota );
+		$this->db->where('id_ring', $idRing);
+        $this->db->update('pelanggan.m_ring', $myArr);
+        return $this->db->affected_rows();
+	}
+    
 	public function updateStatusKalibrasi($idTangki, $statusKalibrasi){
         $myArr = array( 'status_kalibrasi' => $statusKalibrasi );
 		$this->db->where('id_tangki', $idTangki);
@@ -39,6 +46,17 @@ Class Update_Model extends CI_Model {
         $myArr = array( 'status' => $statusHargaBbm );
 		$this->db->where('id_setting', $idSetting);
         $this->db->update('public.s_setting_harga_bbm', $myArr);
+        return $this->db->affected_rows();
+	}
+	
+	public function updateMGeneral($idClusterPelanggan, $hargaLama, $hargaBaru){
+		$myArr = array(
+        	'fuel_price'			=> $hargaLama,
+			'request_update_price'	=> $hargaBaru,
+			'status'				=> 1
+        );
+		$this->db->where('id_cluster_pelanggan', $idClusterPelanggan);
+        $this->db->update('pelanggan.m_general', $myArr);
         return $this->db->affected_rows();
 	}
 	
